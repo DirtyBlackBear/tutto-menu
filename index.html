@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tutto Italiano</title>
+<title>Tutto Italiano | İtalyan Mutfağı</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,16 +22,18 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:Poppins,sans-serif;
-background:#f7f3eb;
+font-family:'Poppins',sans-serif;
+background:#f7f4ed;
 color:#222;
+overflow-x:hidden;
 }
 
 header{
 
-height:95vh;
+height:100vh;
 
-background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+background:
+linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)),
 url("https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop");
 
 background-size:cover;
@@ -45,8 +48,6 @@ align-items:center;
 
 text-align:center;
 
-color:white;
-
 padding:30px;
 
 }
@@ -55,35 +56,45 @@ padding:30px;
 
 max-width:700px;
 
+animation:fade 1.2s ease;
+
 }
 
 .logo{
 
-font-size:60px;
-
 font-family:'Cormorant Garamond',serif;
 
+font-size:72px;
+
+font-weight:700;
+
 letter-spacing:3px;
+
+color:white;
 
 }
 
 .hero h2{
 
-font-size:24px;
+margin-top:15px;
+
+font-size:34px;
 
 font-weight:300;
 
-margin-top:15px;
+color:white;
 
 }
 
 .hero p{
 
-margin:25px 0;
+margin:30px 0;
 
-font-size:18px;
+font-size:20px;
 
-opacity:.9;
+line-height:1.7;
+
+color:#ececec;
 
 }
 
@@ -91,167 +102,69 @@ opacity:.9;
 
 display:inline-block;
 
-padding:16px 40px;
+padding:18px 45px;
 
-background:#b38b4d;
+border-radius:60px;
 
-border-radius:50px;
+background:#b7924f;
 
 color:white;
+
+font-size:18px;
 
 font-weight:600;
 
 text-decoration:none;
 
-transition:.3s;
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 
 }
 
 .btn:hover{
 
-transform:translateY(-3px);
+transform:translateY(-5px);
 
-}
-
-nav{
-
-position:sticky;
-
-top:0;
-
-background:white;
-
-padding:15px;
-
-display:flex;
-
-gap:10px;
-
-overflow:auto;
-
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-z-index:1000;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-padding:10px 18px;
-
-border-radius:30px;
-
-background:#1d4b37;
-
-color:white;
-
-white-space:nowrap;
-
-font-size:14px;
+background:#a88242;
 
 }
 
 section{
 
-padding:60px 7%;
+padding:80px 8%;
 
 }
 
 .title{
 
-font-size:40px;
+text-align:center;
+
+font-size:48px;
 
 font-family:'Cormorant Garamond',serif;
 
-margin-bottom:30px;
+color:#1f4d38;
 
-color:#1d4b37;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:25px;
+margin-bottom:15px;
 
 }
 
-.card{
+.subtitle{
 
-background:white;
+text-align:center;
 
-border-radius:18px;
+font-size:18px;
 
-overflow:hidden;
+color:#777;
 
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-6px);
-
-}
-
-.card img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-}
-
-.info{
-
-padding:22px;
-
-}
-
-.info h3{
-
-font-size:26px;
-
-font-family:'Cormorant Garamond',serif;
-
-margin-bottom:12px;
-
-}
-
-.desc{
-
-line-height:1.7;
-
-color:#666;
-
-font-size:15px;
-
-}
-
-.price{
-
-margin-top:18px;
-
-font-size:28px;
-
-color:#1d4b37;
-
-font-weight:bold;
+margin-bottom:50px;
 
 }
 
 footer{
 
-background:#1d4b37;
+background:#1f4d38;
 
 color:white;
 
@@ -265,6 +178,26 @@ margin-top:80px;
 
 }
 
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
 </style>
 
 </head>
@@ -275,18 +208,60 @@ margin-top:80px;
 
 <div class="hero">
 
-<div class="logo">TUTTO ITALIANO</div>
+<div class="logo">
+
+TUTTO<br>ITALIANO
+
+</div>
 
 <h2>Benvenuti</h2>
 
-<p>%100 Ekşi Mayalı İtalyan Mutfağı</p>
+<p>
 
-<a class="btn" href="#menu">Menüyü Gör</a>
+%100 Ekşi Mayalı İtalyan Mutfağı
+
+</p>
+
+<a class="btn" href="#menu">
+
+Menüyü Gör
+
+</a>
 
 </div>
 
 </header>
 
-<nav>
+<section id="menu">
 
-</nav>
+<h2 class="title">
+
+Menümüz
+
+</h2>
+
+<p class="subtitle">
+
+Gerçek İtalyan lezzetlerini keşfedin.
+
+</p>
+
+<!-- BURAYA PİZZALAR GELECEK -->
+
+</section>
+
+<footer>
+
+0533 028 24 82<br>
+
+tuttoitaliano.com.tr<br>
+
+@italianotutto<br>
+
+tuttoitaliano@mail.com
+
+</footer>
+
+</body>
+
+</html>
