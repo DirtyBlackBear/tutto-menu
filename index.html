@@ -4,65 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tutto Italiano | İtalyan Mutfağı</title>
-<meta name="description" content="Tutto Italiano — İstanbul'da %100 ekşi mayalı İtalyan mutfağı. Pizza, makarna, sandviç ve daha fazlası.">
+<meta name="description" content="Tutto Italiano — İstanbul'da %100 ekşi mayalı İtalyan mutfağı. Napoli usulü pizza, taze fettuccine, sandviç, salata ve daha fazlası.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#f7f4ed;
-  --ink:#222;
-  --pine:#1f4d38;
-  --gold:#b7924f;
-  --line:#d8c39a;
+  --paper:#fbf9f4;
+  --ink:#26241f;
+  --navy:#1b2a44;
+  --gold:#b9843c;
+  --line:#e2d9c4;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Poppins,sans-serif;background:var(--cream);color:var(--ink)}
 a{color:inherit}
 
-/* Sticky nav */
 nav{
   position:sticky;top:0;z-index:10;
-  display:flex;justify-content:center;gap:28px;flex-wrap:wrap;
-  background:var(--pine);padding:14px 20px;
+  display:flex;justify-content:center;gap:26px;flex-wrap:wrap;
+  background:var(--navy);padding:14px 20px;
 }
 nav a{
-  font-size:14px;letter-spacing:.04em;text-transform:uppercase;
-  text-decoration:none;color:#fff;opacity:.85;transition:opacity .2s;
+  font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;color:#fff;opacity:.8;transition:opacity .2s;
 }
 nav a:hover,nav a:focus-visible{opacity:1;text-decoration:underline}
 
 header{
-  min-height:80vh;display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;
-  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop') center/cover;
-  padding:40px 20px;
+  min-height:82vh;display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;
+  background:linear-gradient(rgba(10,15,28,.62),rgba(10,15,28,.68)),url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop') center/cover;
+  padding:50px 20px;
 }
-.logo{font:700 64px 'Cormorant Garamond',serif;line-height:1.05}
+.wreath{width:180px;height:auto;margin:0 auto 4px;opacity:.92}
+.logo{font:700 60px 'Cormorant Garamond',serif;line-height:1.1;color:var(--gold)}
 .hero-text{max-width:520px;margin:16px auto 4px;font-weight:300}
-.hero-tag{letter-spacing:.08em;text-transform:uppercase;font-size:13px;opacity:.9}
+.hero-tag{letter-spacing:.1em;text-transform:uppercase;font-size:12px;opacity:.85}
 .btn{
-  display:inline-block;margin-top:24px;padding:14px 34px;background:var(--gold);
-  color:#fff;text-decoration:none;border-radius:40px;font-weight:600;
+  display:inline-block;margin-top:26px;padding:14px 36px;background:var(--gold);
+  color:#fff;text-decoration:none;border-radius:40px;font-weight:600;letter-spacing:.02em;
   transition:transform .2s,box-shadow .2s;
 }
-.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
 
-section{max-width:900px;margin:auto;padding:60px 24px}
-h2{font:700 42px 'Cormorant Garamond',serif;color:var(--pine);text-align:center;margin-bottom:8px}
-.subtitle{text-align:center;color:#777;margin-top:0;margin-bottom:0}
+section{max-width:920px;margin:auto;padding:60px 24px}
+h2{font:700 42px 'Cormorant Garamond',serif;color:var(--navy);text-align:center;margin-bottom:6px}
+.subtitle{text-align:center;color:#8a8474;margin-top:0;margin-bottom:0;font-size:14px}
 
 .category{
   scroll-margin-top:70px;
-  margin-top:48px;padding-bottom:8px;border-bottom:2px solid var(--line);
-  font:700 34px 'Cormorant Garamond',serif;color:var(--pine);
+  display:flex;align-items:baseline;gap:14px;
+  margin-top:52px;padding-bottom:10px;border-bottom:2px solid var(--line);
 }
-.item{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #e4e4e4}
-.item b{display:block;margin-bottom:4px;font-weight:600}
-.item span{color:#666;font-size:14px}
-.price{font-weight:700;color:var(--pine);white-space:nowrap}
+.category b{font:700 32px 'Cormorant Garamond',serif;color:var(--navy)}
+.category small{color:#9a927c;font-size:13px;font-style:italic}
 
-footer{background:var(--pine);color:#fff;text-align:center;padding:48px 20px}
-footer h3{font:700 28px 'Cormorant Garamond',serif;margin:0 0 8px}
+.item{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #eae5d8}
+.item .name{font-weight:600}
+.item .desc{display:block;margin-top:3px;color:#847e6c;font-size:13.5px;line-height:1.4}
+.price{font-weight:700;color:var(--navy);white-space:nowrap}
+
+.drinks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px}
+.drinks-grid .col h4{
+  font:600 13px Poppins,sans-serif;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 4px;
+}
+.drinks-grid .col .sub{font-size:11px;color:#9a927c;margin-bottom:10px;font-style:italic}
+.drinks-grid .item{padding:9px 0}
+.drinks-grid .item .name{font-size:14px;font-weight:400}
+
+footer{background:var(--navy);color:#fff;text-align:center;padding:48px 20px}
+footer h3{font:700 28px 'Cormorant Garamond',serif;margin:0 0 8px;color:var(--gold)}
 footer .tagline{opacity:.85;margin:0 0 20px}
 .footer-info{
   display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:20px;
@@ -71,11 +84,14 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 .footer-info a:hover,.footer-info a:focus-visible{opacity:1;text-decoration:underline}
 .copyright{font-size:12px;opacity:.6;margin:0}
 
-@media(max-width:600px){
-  .item{flex-direction:column;gap:4px}
+@media(max-width:640px){
+  .item{flex-direction:column;gap:2px}
   .logo{font-size:44px}
-  nav{gap:16px;padding:12px}
-  nav a{font-size:12px}
+  .wreath{width:130px}
+  nav{gap:14px;padding:12px}
+  nav a{font-size:11px}
+  .drinks-grid{grid-template-columns:1fr;gap:24px}
+  .category b{font-size:26px}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -87,17 +103,26 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 
 <nav aria-label="Menü kategorileri">
 <a href="#pizza">Pizza</a>
-<a href="#makarna">Makarna</a>
-<a href="#sandvic">Sandviç</a>
+<a href="#sandwich">Sandwich</a>
 <a href="#salata">Salata</a>
+<a href="#makarna">Makarna</a>
 <a href="#tatli">Tatlı</a>
-<a href="#kahve">Kahve</a>
-<a href="#icecek">İçecek</a>
+<a href="#icecekler">İçecekler</a>
 </nav>
 
 <header>
 <div>
-<div class="logo">TUTTO<br>ITALIANO</div>
+<svg class="wreath" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g stroke="#cbd3de" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M95 30 C70 10, 40 8, 15 22"/>
+    <path d="M30 20 L20 12 M40 17 L32 8 M52 14 L46 4 M64 13 L60 2 M76 14 L74 4"/>
+  </g>
+  <g stroke="#cbd3de" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M105 30 C130 10, 160 8, 185 22"/>
+    <path d="M170 20 L180 12 M160 17 L168 8 M148 14 L154 4 M136 13 L140 2 M124 14 L126 4"/>
+  </g>
+</svg>
+<div class="logo">Tutto<br>Italiano</div>
 <p class="hero-text">İtalya'nın geleneksel lezzetleri, ekşi mayalı hamur ve günlük taze malzemelerle hazırlanır.</p>
 <p class="hero-tag">%100 Ekşi Mayalı İtalyan Mutfağı</p>
 <a class="btn" href="#menu">Menüyü Gör</a>
@@ -108,37 +133,78 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 <h2>Menümüz</h2>
 <p class="subtitle">Günlük taze malzemelerle, ekşi mayalı hamur üzerine.</p>
 
-<h3 class="category" id="pizza">🍕 Pizza</h3>
-<div class="item"><div><b>Margherita</b><span>San Marzano domates • Mozzarella • Fesleğen</span></div><div class="price">400₺</div></div>
-<div class="item"><div><b>Vicenza</b><span>Trüf sos • İstiridye mantarı • Kestane mantarı • Mozzarella</span></div><div class="price">450₺</div></div>
-<div class="item"><div><b>Carpi</b><span>Füme kaburga • Mozzarella • Roka • Parmesan</span></div><div class="price">550₺</div></div>
+<div class="category" id="pizza"><b>Pizza</b><small>%100 ekşi maya, Napoli usulü</small></div>
+<div class="item"><div><span class="name">Margarita</span><span class="desc">San Marzano domates • Fesleğen yaprakları • Mozzarella</span></div><div class="price">400₺</div></div>
+<div class="item"><div><span class="name">Margarita Tutto</span><span class="desc">Tutto taban sos • Fesleğen yaprakları • Sıvı Mozzarella</span></div><div class="price">420₺</div></div>
+<div class="item"><div><span class="name">Vicenza</span><span class="desc">Trüf taban sos • İstiridye mantarı • Kestane mantarı • Mozzarella</span></div><div class="price">450₺</div></div>
+<div class="item"><div><span class="name">L'Aquila</span><span class="desc">Kabak krem sos • Enginar • Dereotu • Soğan turşusu • Mozzarella • Parmesan</span></div><div class="price">490₺</div></div>
+<div class="item"><div><span class="name">Benevento</span><span class="desc">Tutto taban sos • İtalyan sucuk • Mozzarella • Parmesan</span></div><div class="price">490₺</div></div>
+<div class="item"><div><span class="name">Carpi</span><span class="desc">San Marzano domates • Füme kaburga • Mozzarella • Roka • Parmesan</span></div><div class="price">550₺</div></div>
+<div class="item"><div><span class="name">Torre del Greco</span><span class="desc">Krem sos • Somon • Sıvı Mozzarella • Soğan turşusu • Dereotu yağı • Limon zest</span></div><div class="price">570₺</div></div>
+<div class="item"><div><span class="name">Lombardiya</span><span class="desc">Tutto taban sos • Füme antrikot dilimleri • Mozzarella • Taze kekik • Parmesan</span></div><div class="price">550₺</div></div>
+<div class="item"><div><span class="name">Faenza</span><span class="desc">Krem sos • Rokfor • Mozzarella • Parmesan • Roka</span></div><div class="price">520₺</div></div>
 
-<h3 class="category" id="makarna">🍝 Makarna</h3>
-<div class="item"><div><b>Treviso</b><span>Trüf sos • Kestane mantarı • Parmesan</span></div><div class="price">420₺</div></div>
-<div class="item"><div><b>La Spezia</b><span>Jumbo karides • San Marzano • Parmesan</span></div><div class="price">490₺</div></div>
+<div class="category" id="sandwich"><b>Sandwich</b><small>%100 ekşi mayalı ciabatta ekmeği</small></div>
+<div class="item"><div><span class="name">Hindi Füme</span><span class="desc">Peynir kreması • Roka • Balsamico • Hindi füme</span></div><div class="price">360₺</div></div>
+<div class="item"><div><span class="name">Margarita</span><span class="desc">Tutto domates sos • Fesleğen yaprakları • Sıvı Mozzarella</span></div><div class="price">320₺</div></div>
+<div class="item"><div><span class="name">Mantarlı</span><span class="desc">Kabak krem sos • Közlenmiş biber • İstiridye mantarı • Parmesan</span></div><div class="price">360₺</div></div>
+<div class="item"><div><span class="name">Ton Balıklı</span><span class="desc">Krem sos • Marul • Balsamico • Domates • Soğan turşusu • Ton balığı</span></div><div class="price">380₺</div></div>
 
-<h3 class="category" id="sandvic">🥪 Sandviç</h3>
-<div class="item"><div><b>Hindi Füme</b><span>Peynir kreması • Roka</span></div><div class="price">360₺</div></div>
-<div class="item"><div><b>Ton Balıklı</b><span>Marul • Domates • Ton balığı</span></div><div class="price">380₺</div></div>
+<div class="category" id="salata"><b>Salata</b></div>
+<div class="item"><div><span class="name">Füme Somonlu</span><span class="desc">Mevsim yeşillikleri • Domates • Salatalık • Ançuez ligure • Vinegret sos • Somon</span></div><div class="price">440₺</div></div>
+<div class="item"><div><span class="name">Yeşil Salata</span><span class="desc">Mevsim yeşillikleri • Domates • Beyaz peynir • Yeşil zeytin • Kekik • Küp ekmek • Vinegret sos</span></div><div class="price">380₺</div></div>
 
-<h3 class="category" id="salata">🥗 Salata</h3>
-<div class="item"><div><b>Füme Somonlu</b><span>Mevsim yeşillikleri • Somon</span></div><div class="price">440₺</div></div>
+<div class="category" id="makarna"><b>Makarna</b><small>Taze fettuccine</small></div>
+<div class="item"><div><span class="name">Treviso</span><span class="desc">Taze fettuccine • Trüf sos • Sarımsak • Kestane mantarı • Parmesan</span></div><div class="price">420₺</div></div>
+<div class="item"><div><span class="name">Catania</span><span class="desc">Taze fettuccine • San Marzano domates • Közlenmiş patlıcan • Sarımsak • Parmesan</span></div><div class="price">400₺</div></div>
+<div class="item"><div><span class="name">Monza</span><span class="desc">Taze fettuccine • San Marzano domates • Fesleğen yaprakları • Parmesan</span></div><div class="price">360₺</div></div>
+<div class="item"><div><span class="name">La Spezia</span><span class="desc">Taze fettuccine • San Marzano domates • Jumbo karides • Fesleğen yaprakları • Parmesan</span></div><div class="price">490₺</div></div>
 
-<h3 class="category" id="tatli">🍰 Tatlı</h3>
-<div class="item"><div><b>Tiramisu</b></div><div class="price">340₺</div></div>
-<div class="item"><div><b>Pizzikotti</b></div><div class="price">180₺</div></div>
+<div class="category" id="tatli"><b>Tatlı</b></div>
+<div class="item"><div><span class="name">Tiramisu</span></div><div class="price">340₺</div></div>
+<div class="item"><div><span class="name">Pizzikotti</span></div><div class="price">180₺</div></div>
 
-<h3 class="category" id="kahve">☕ Kahve</h3>
-<div class="item"><div><b>Espresso</b></div><div class="price">100₺</div></div>
-<div class="item"><div><b>Latte</b></div><div class="price">150₺</div></div>
+<div class="category" id="icecekler"><b>İçecekler</b></div>
+<div class="drinks-grid">
+  <div class="col">
+    <h4>Soğuk İçecekler</h4>
+    <div class="item"><div class="name">Su</div><div class="price">60₺</div></div>
+    <div class="item"><div class="name">Soda</div><div class="price">80₺</div></div>
+    <div class="item"><div class="name">S. Pellegrino</div><div class="price">130₺</div></div>
+    <div class="item"><div class="name">Coca-Cola</div><div class="price">90₺</div></div>
+    <div class="item"><div class="name">Sprite</div><div class="price">90₺</div></div>
+    <div class="item"><div class="name">Fanta</div><div class="price">90₺</div></div>
+    <div class="item"><div class="name">Fusetea</div><div class="price">90₺</div></div>
+    <div class="item"><div class="name">Ayran</div><div class="price">80₺</div></div>
+  </div>
+  <div class="col">
+    <h4>Kahve</h4>
+    <p class="sub">Kimbo</p>
+    <div class="item"><div class="name">Espresso</div><div class="price">100₺</div></div>
+    <div class="item"><div class="name">Lungo</div><div class="price">100₺</div></div>
+    <div class="item"><div class="name">Double Espresso</div><div class="price">120₺</div></div>
+    <div class="item"><div class="name">Americano</div><div class="price">120₺</div></div>
+    <div class="item"><div class="name">Latte</div><div class="price">150₺</div></div>
+    <div class="item"><div class="name">Flat White</div><div class="price">160₺</div></div>
+    <div class="item"><div class="name">Cappuccino</div><div class="price">160₺</div></div>
+    <div class="item"><div class="name">Cortado</div><div class="price">135₺</div></div>
+    <div class="item"><div class="name">Macchiato</div><div class="price">110₺</div></div>
+  </div>
+  <div class="col">
+    <h4>Çay</h4>
+    <p class="sub">Melez Tea</p>
+    <div class="item"><div class="name">Sleep</div><div class="price">130₺</div></div>
+    <div class="item"><div class="name">Spice</div><div class="price">130₺</div></div>
+    <div class="item"><div class="name">Winter</div><div class="price">130₺</div></div>
+    <div class="item"><div class="name">Oolong</div><div class="price">130₺</div></div>
+    <div class="item"><div class="name">Green</div><div class="price">130₺</div></div>
+  </div>
+</div>
 
-<h3 class="category" id="icecek">🥤 İçecekler</h3>
-<div class="item"><div><b>Coca-Cola</b></div><div class="price">90₺</div></div>
-<div class="item"><div><b>Su</b></div><div class="price">60₺</div></div>
 </section>
 
 <footer>
-<h3>TUTTO ITALIANO</h3>
+<h3>Tutto Italiano</h3>
 <p class="tagline">İtalyan Mutfağı • %100 Ekşi Mayalı</p>
 <div class="footer-info">
 <a href="tel:+905330282482">📞 0533 028 24 82</a>
