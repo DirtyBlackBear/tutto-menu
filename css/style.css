@@ -1,246 +1,53 @@
-/* ===========================
-   TUTTO ITALIANO V3
-=========================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;700&display=swap');
-
-:root{
-
---green:#19462F;
---gold:#C4A35A;
---cream:#F8F5EF;
---white:#ffffff;
---text:#222;
---gray:#777;
-
-}
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-body{
-
-font-family:Poppins,sans-serif;
-
-background:var(--cream);
-
-color:var(--text);
-
-overflow-x:hidden;
-
-}
-
-a{
-
-text-decoration:none;
-
-color:inherit;
-
-}
-
-img{
-
-width:100%;
-
-display:block;
-
-}
-
-.container{
-
-width:min(1200px,92%);
-
-margin:auto;
-
-}
-
-/* HEADER */
-
-header{
-
-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-padding:20px;
-
-background:
-
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-url("../images/hero.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-.hero{
-
-max-width:700px;
-
-animation:fade 1.2s;
-
-}
-
-.logo{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:72px;
-
-letter-spacing:3px;
-
-color:white;
-
-}
-
-.hero h2{
-
-color:white;
-
-font-size:30px;
-
-font-weight:300;
-
-margin-top:15px;
-
-}
-
-.hero p{
-
-color:#eee;
-
-font-size:18px;
-
-margin:25px 0;
-
-line-height:1.8;
-
-}
-
-.button{
-
-display:inline-block;
-
-background:var(--gold);
-
-color:white;
-
-padding:16px 42px;
-
-border-radius:50px;
-
-font-weight:600;
-
+.item{
 transition:.35s;
-
+border-radius:16px;
+padding:22px;
 }
 
-.button:hover{
+.item:hover{
 
-transform:translateY(-4px);
+background:white;
 
-}
+transform:translateY(-5px);
 
-/* MENU */
-
-section{
-
-padding:70px 0;
-
-}
-
-.section-title{
-
-font-size:48px;
-
-font-family:'Cormorant Garamond',serif;
-
-color:var(--green);
-
-text-align:center;
-
-margin-bottom:15px;
-
-}
-
-.section-sub{
-
-text-align:center;
-
-color:var(--gray);
-
-margin-bottom:45px;
-
-}
-
-.categories{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 
 }
 
 .category{
 
-background:white;
-
-border-radius:22px;
-
-padding:24px;
-
-text-align:center;
-
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-transition:.3s;
+position:relative;
 
 }
 
-.category:hover{
+.category::after{
 
-transform:translateY(-6px);
+content:"";
+
+width:70px;
+
+height:4px;
+
+background:#b7924f;
+
+display:block;
+
+margin-top:8px;
+
+border-radius:20px;
 
 }
 
-.category img{
+.btn{
 
-height:110px;
-
-object-fit:cover;
-
-border-radius:16px;
-
-margin-bottom:15px;
+transition:.4s;
 
 }
 
-.category h3{
+.btn:hover{
 
-font-size:22px;
+background:#9b7638;
 
-color:var(--green);
+transform:scale(1.05);
 
 }
