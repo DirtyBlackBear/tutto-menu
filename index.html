@@ -1,166 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutto Italiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
 <style>
-.menu-category{
-margin-top:60px;
-margin-bottom:20px;
-font-size:36px;
-font-family:'Cormorant Garamond',serif;
-color:#1f4d38;
-border-bottom:2px solid #d8c39a;
-padding-bottom:10px;
-}
-
-.menu-item{
-display:flex;
-justify-content:space-between;
-gap:20px;
-padding:18px 0;
-border-bottom:1px solid #e8e3d9;
-}
-
-.menu-info{
-flex:1;
-}
-
-.menu-info h3{
-font-size:22px;
-margin-bottom:6px;
-}
-
-.menu-info p{
-font-size:15px;
-color:#666;
-line-height:1.6;
-}
-
-.menu-price{
-font-size:22px;
-font-weight:700;
-color:#1f4d38;
-white-space:nowrap;
-}
+body{margin:0;font-family:Poppins,sans-serif;background:#f7f4ed;color:#222}
+header{height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop') center/cover}
+.logo{font:700 64px 'Cormorant Garamond',serif}
+.btn{display:inline-block;margin-top:24px;padding:14px 34px;background:#b7924f;color:#fff;text-decoration:none;border-radius:40px}
+section{max-width:900px;margin:auto;padding:60px 24px}
+h2{font:700 42px 'Cormorant Garamond',serif;color:#1f4d38}
+.category{margin-top:40px;padding-bottom:8px;border-bottom:2px solid #d8c39a;font:700 34px 'Cormorant Garamond',serif;color:#1f4d38}
+.item{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #ddd}
+.item b{display:block;margin-bottom:4px}
+.price{font-weight:700;color:#1f4d38}
+footer{background:#1f4d38;color:#fff;text-align:center;padding:40px;margin-top:60px}
+@media(max-width:600px){.item{flex-direction:column}.logo{font-size:48px}}
 </style>
+</head>
+<body>
+<header>
+<div>
+<div class="logo">TUTTO<br>ITALIANO</div>
+<p>%100 Ekşi Mayalı İtalyan Mutfağı</p>
+<a class="btn" href="#menu">Menüyü Gör</a>
+</div>
+</header>
+<section id="menu">
+<h2>Menümüz</h2>
 
-<div class="menu-category">🍕 Pizza</div>
+<div class="category">🍕 Pizza</div>
+<div class="item"><div><b>Margherita</b>San Marzano domates • Mozzarella • Fesleğen</div><div class="price">400₺</div></div>
+<div class="item"><div><b>Vicenza</b>Trüf sos • İstiridye mantarı • Kestane mantarı • Mozzarella</div><div class="price">450₺</div></div>
+<div class="item"><div><b>Carpi</b>Füme kaburga • Mozzarella • Roka • Parmesan</div><div class="price">550₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Margherita</h3>
-<p>San Marzano domates • Mozzarella • Fesleğen</p>
-</div>
-<div class="menu-price">400₺</div>
-</div>
+<div class="category">🍝 Makarna</div>
+<div class="item"><div><b>Treviso</b>Trüf sos • Kestane mantarı • Parmesan</div><div class="price">420₺</div></div>
+<div class="item"><div><b>La Spezia</b>Jumbo karides • San Marzano • Parmesan</div><div class="price">490₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Margherita Tutto</h3>
-<p>Tutto sos • Mozzarella • Fesleğen</p>
-</div>
-<div class="menu-price">420₺</div>
-</div>
+<div class="category">🥪 Sandviç</div>
+<div class="item"><div><b>Hindi Füme</b>Peynir kreması • Roka</div><div class="price">360₺</div></div>
+<div class="item"><div><b>Ton Balıklı</b>Marul • Domates • Ton balığı</div><div class="price">380₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Vicenza</h3>
-<p>Trüf sos • İstiridye mantarı • Kestane mantarı • Mozzarella</p>
-</div>
-<div class="menu-price">450₺</div>
-</div>
+<div class="category">🥗 Salata</div>
+<div class="item"><div><b>Füme Somonlu</b>Mevsim yeşillikleri • Somon</div><div class="price">440₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>L'Aquila</h3>
-<p>Kabak krem sos • Enginar • Dereotu • Soğan turşusu • Mozzarella • Parmesan</p>
-</div>
-<div class="menu-price">490₺</div>
-</div>
+<div class="category">🍰 Tatlı</div>
+<div class="item"><div><b>Tiramisu</b></div><div class="price">340₺</div></div>
+<div class="item"><div><b>Pizzikotti</b></div><div class="price">180₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Benevento</h3>
-<p>Tutto sos • İtalyan sucuk • Mozzarella • Parmesan</p>
-</div>
-<div class="menu-price">490₺</div>
-</div>
+<div class="category">☕ Kahve</div>
+<div class="item"><div><b>Espresso</b></div><div class="price">100₺</div></div>
+<div class="item"><div><b>Latte</b></div><div class="price">150₺</div></div>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Carpi</h3>
-<p>San Marzano domates • Füme kaburga • Mozzarella • Roka • Parmesan</p>
-</div>
-<div class="menu-price">550₺</div>
-</div>
+<div class="category">🥤 İçecekler</div>
+<div class="item"><div><b>Coca‑Cola</b></div><div class="price">90₺</div></div>
+<div class="item"><div><b>Su</b></div><div class="price">60₺</div></div>
+</section>
 
-<div class="menu-item">
-<div class="menu-info">
-<h3>Torre del Greco</h3>
-<p>Krem sos • Somon • Suda Mozzarella • Soğan turşusu • Dereotu yağı • Limon zest</p>
-</div>
-<div class="menu-price">570₺</div>
-</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>Lombardiya</h3>
-<p>Tutto sos • Füme antrikot • Mozzarella • Taze kekik • Parmesan</p>
-</div>
-<div class="menu-price">550₺</div>
-</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>Faenza</h3>
-<p>Krem sos • Rokfor • Mozzarella • Parmesan • Roka</p>
-</div>
-<div class="menu-price">520₺</div>
-</div>
-
-<div class="menu-category">🍝 Makarna</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>Treviso</h3>
-<p>Taze fettuccine • Trüf sos • Sarımsak • Kestane mantarı • Parmesan</p>
-</div>
-<div class="menu-price">420₺</div>
-</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>Catania</h3>
-<p>San Marzano domates • Köz patlıcan • Sarımsak • Parmesan</p>
-</div>
-<div class="menu-price">400₺</div>
-</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>Monza</h3>
-<p>San Marzano domates • Fesleğen • Parmesan</p>
-</div>
-<div class="menu-price">360₺</div>
-</div>
-
-<div class="menu-item">
-<div class="menu-info">
-<h3>La Spezia</h3>
-<p>San Marzano domates • Jumbo karides • Fesleğen • Parmesan</p>
-</div>
-<div class="menu-price">490₺</div>
-</div>
-
-<div class="menu-category">🥪 Sandviç</div>
-
-<div class="menu-item"><div class="menu-info"><h3>Hindi Füme</h3></div><div class="menu-price">360₺</div></div>
-<div class="menu-item"><div class="menu-info"><h3>Margherita</h3></div><div class="menu-price">320₺</div></div>
-<div class="menu-item"><div class="menu-info"><h3>Mantarlı</h3></div><div class="menu-price">360₺</div></div>
-<div class="menu-item"><div class="menu-info"><h3>Ton Balıklı</h3></div><div class="menu-price">380₺</div></div>
-
-<div class="menu-category">🥗 Salata</div>
-
-<div class="menu-item"><div class="menu-info"><h3>Füme Somonlu</h3></div><div class="menu-price">440₺</div></div>
-<div class="menu-item"><div class="menu-info"><h3>Yeşil Salata</h3></div><div class="menu-price">380₺</div></div>
-
-<div class="menu-category">🍰 Tatlı</div>
-
-<div class="menu-item"><div class="menu-info"><h3>Tiramisu</h3></div><div class="menu-price">340₺</div></div>
-<div class="menu-item"><div class="menu-info"><h3>Pizzikotti</h3></div><div class="menu-price">180₺</div></div>
+<footer>
+0533 028 24 82<br>
+tuttoitaliano.com.tr<br>
+@italianotutto
+</footer>
+</body>
+</html>
