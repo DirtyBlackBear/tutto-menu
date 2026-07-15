@@ -63,6 +63,7 @@ h2{font:700 42px 'Cormorant Garamond',serif;color:var(--navy);text-align:center;
 .item{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #eae5d8}
 .item .name{font-weight:600}
 .item .desc{display:block;margin-top:3px;color:#847e6c;font-size:13.5px;line-height:1.4}
+.item .allergen-note{display:block;margin-top:5px;color:#b9843c;font-size:12px;font-style:italic;line-height:1.4}
 .price{font-weight:700;color:var(--navy);white-space:nowrap}
 
 .drinks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px}
@@ -97,6 +98,58 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 @media (prefers-reduced-motion: reduce){
   .btn{transition:none}
 }
+
+/* Allergen filter */
+.allergen-fab{
+  position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#e2574c,#c94436);color:#fff;
+  border:none;padding:14px 26px;border-radius:40px;font:600 14px Poppins,sans-serif;
+  box-shadow:0 10px 24px rgba(201,68,54,.35);cursor:pointer;z-index:20;
+}
+.allergen-fab:hover,.allergen-fab:focus-visible{box-shadow:0 12px 28px rgba(201,68,54,.45)}
+.allergen-badge{
+  background:#fff;color:#c94436;font-size:11px;font-weight:700;
+  border-radius:50%;width:18px;height:18px;display:none;align-items:center;justify-content:center;
+}
+.allergen-badge.show{display:inline-flex}
+
+.allergen-overlay{
+  display:none;position:fixed;inset:0;background:rgba(15,20,30,.55);z-index:30;
+  justify-content:center;align-items:flex-end;
+}
+.allergen-overlay.open{display:flex}
+.allergen-modal{
+  background:#fff;width:100%;max-width:560px;max-height:88vh;overflow-y:auto;
+  border-radius:24px 24px 0 0;padding:26px 24px 30px;
+}
+@media(min-width:640px){
+  .allergen-overlay{align-items:center}
+  .allergen-modal{border-radius:20px;margin:20px}
+}
+.allergen-modal-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.allergen-modal-head h3{font:700 24px 'Cormorant Garamond',serif;margin:0;color:var(--navy)}
+.allergen-close{background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:#888;padding:4px}
+.allergen-modal p.desc{color:#736c58;font-size:13.5px;margin:0 0 20px}
+.allergen-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.allergen-pill{
+  display:flex;align-items:center;gap:8px;justify-content:center;
+  background:#f1efe8;border:2px solid transparent;border-radius:40px;
+  padding:12px 14px;font-size:14px;font-weight:500;cursor:pointer;color:var(--ink);
+  transition:background .15s,border-color .15s;
+}
+.allergen-pill.active{background:#fdece9;border-color:#e2574c;color:#c94436;font-weight:600}
+.allergen-apply{
+  width:100%;margin-top:22px;padding:15px;border:none;border-radius:40px;
+  background:linear-gradient(135deg,#e2574c,#c94436);color:#fff;font:600 15px Poppins,sans-serif;
+  cursor:pointer;
+}
+.allergen-clear{
+  width:100%;margin-top:10px;padding:12px;border:none;border-radius:40px;
+  background:none;color:#8a8474;font:500 13px Poppins,sans-serif;cursor:pointer;text-decoration:underline;
+}
+.item.allergen-hidden{display:none}
+.no-results{color:#9a927c;font-size:13.5px;font-style:italic;padding:8px 0}
 </style>
 </head>
 <body>
@@ -134,15 +187,16 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 <p class="subtitle">Günlük taze malzemelerle, ekşi mayalı hamur üzerine.</p>
 
 <div class="category" id="pizza"><b>Pizza</b><small>%100 ekşi maya, Napoli usulü</small></div>
-<div class="item"><div><span class="name">Margarita</span><span class="desc">San Marzano domates • Fesleğen yaprakları • Mozzarella</span></div><div class="price">400₺</div></div>
-<div class="item"><div><span class="name">Margarita Tutto</span><span class="desc">Tutto taban sos • Fesleğen yaprakları • Sıvı Mozzarella</span></div><div class="price">420₺</div></div>
-<div class="item"><div><span class="name">Vicenza</span><span class="desc">Trüf taban sos • İstiridye mantarı • Kestane mantarı • Mozzarella</span></div><div class="price">450₺</div></div>
-<div class="item"><div><span class="name">L'Aquila</span><span class="desc">Kabak krem sos • Enginar • Dereotu • Soğan turşusu • Mozzarella • Parmesan</span></div><div class="price">490₺</div></div>
-<div class="item"><div><span class="name">Benevento</span><span class="desc">Tutto taban sos • İtalyan sucuk • Mozzarella • Parmesan</span></div><div class="price">490₺</div></div>
-<div class="item"><div><span class="name">Carpi</span><span class="desc">San Marzano domates • Füme kaburga • Mozzarella • Roka • Parmesan</span></div><div class="price">550₺</div></div>
-<div class="item"><div><span class="name">Torre del Greco</span><span class="desc">Krem sos • Somon • Sıvı Mozzarella • Soğan turşusu • Dereotu yağı • Limon zest</span></div><div class="price">570₺</div></div>
-<div class="item"><div><span class="name">Lombardiya</span><span class="desc">Tutto taban sos • Füme antrikot dilimleri • Mozzarella • Taze kekik • Parmesan</span></div><div class="price">550₺</div></div>
-<div class="item"><div><span class="name">Faenza</span><span class="desc">Krem sos • Rokfor • Mozzarella • Parmesan • Roka</span></div><div class="price">520₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut"><div><span class="name">Margarita</span><span class="desc">San Marzano domates • Fesleğen yaprakları • Mozzarella</span></div><div class="price">400₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut"><div><span class="name">Margarita Tutto</span><span class="desc">Tutto taban sos • Fesleğen yaprakları • Sıvı Mozzarella</span></div><div class="price">420₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut"><div><span class="name">Vicenza</span><span class="desc">Trüf taban sos • İstiridye mantarı • Kestane mantarı • Mozzarella</span></div><div class="price">450₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut"><div><span class="name">L'Aquila</span><span class="desc">Kabak krem sos • Enginar • Dereotu • Soğan turşusu • Mozzarella • Parmesan</span></div><div class="price">490₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut,sulfit"><div><span class="name">Benevento</span><span class="desc">Tutto taban sos • İtalyan sucuk • Mozzarella • Parmesan</span><span class="allergen-note">⚠️ İşlenmiş et içerir — sülfit teyidi için personelimize danışınız</span></div><div class="price">490₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut,sulfit"><div><span class="name">Carpi</span><span class="desc">San Marzano domates • Füme kaburga • Mozzarella • Roka • Parmesan</span><span class="allergen-note">⚠️ Füme et içerir — sülfit teyidi için personelimize danışınız</span></div><div class="price">550₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut,balik"><div><span class="name">Torre del Greco</span><span class="desc">Krem sos • Somon • Sıvı Mozzarella • Soğan turşusu • Dereotu yağı • Limon zest</span></div><div class="price">570₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut,sulfit"><div><span class="name">Lombardiya</span><span class="desc">Tutto taban sos • Füme antrikot dilimleri • Mozzarella • Taze kekik • Parmesan</span><span class="allergen-note">⚠️ Füme et içerir — sülfit teyidi için personelimize danışınız</span></div><div class="price">550₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut"><div><span class="name">Faenza</span><span class="desc">Krem sos • Rokfor • Mozzarella • Parmesan • Roka</span></div><div class="price">520₺</div></div>
+<p class="no-results" data-section="pizza" hidden>Seçtiğiniz alerjenlere göre bu kategoride uygun ürün bulunamadı.</p>
 
 <div class="category" id="sandwich"><b>Sandwich</b><small>%100 ekşi mayalı ciabatta ekmeği</small></div>
 <div class="item"><div><span class="name">Hindi Füme</span><span class="desc">Peynir kreması • Roka • Balsamico • Hindi füme</span></div><div class="price">360₺</div></div>
@@ -154,15 +208,17 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 <div class="item"><div><span class="name">Füme Somonlu</span><span class="desc">Mevsim yeşillikleri • Domates • Salatalık • Ançuez ligure • Vinegret sos • Somon</span></div><div class="price">440₺</div></div>
 <div class="item"><div><span class="name">Yeşil Salata</span><span class="desc">Mevsim yeşillikleri • Domates • Beyaz peynir • Yeşil zeytin • Kekik • Küp ekmek • Vinegret sos</span></div><div class="price">380₺</div></div>
 
-<div class="category" id="makarna"><b>Makarna</b><small>Taze fettuccine</small></div>
-<div class="item"><div><span class="name">Treviso</span><span class="desc">Taze fettuccine • Trüf sos • Sarımsak • Kestane mantarı • Parmesan</span></div><div class="price">420₺</div></div>
-<div class="item"><div><span class="name">Catania</span><span class="desc">Taze fettuccine • San Marzano domates • Közlenmiş patlıcan • Sarımsak • Parmesan</span></div><div class="price">400₺</div></div>
-<div class="item"><div><span class="name">Monza</span><span class="desc">Taze fettuccine • San Marzano domates • Fesleğen yaprakları • Parmesan</span></div><div class="price">360₺</div></div>
-<div class="item"><div><span class="name">La Spezia</span><span class="desc">Taze fettuccine • San Marzano domates • Jumbo karides • Fesleğen yaprakları • Parmesan</span></div><div class="price">490₺</div></div>
+<div class="category" id="makarna"><b>Makarna</b><small>Taze fettuccine — genellikle yumurtalı hamur (teyit önerilir)</small></div>
+<div class="item allergen-item" data-allergens="gluten,yumurta,sut"><div><span class="name">Treviso</span><span class="desc">Taze fettuccine • Trüf sos • Sarımsak • Kestane mantarı • Parmesan</span></div><div class="price">420₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,yumurta,sut"><div><span class="name">Catania</span><span class="desc">Taze fettuccine • San Marzano domates • Közlenmiş patlıcan • Sarımsak • Parmesan</span></div><div class="price">400₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,yumurta,sut"><div><span class="name">Monza</span><span class="desc">Taze fettuccine • San Marzano domates • Fesleğen yaprakları • Parmesan</span></div><div class="price">360₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,yumurta,sut,kabuklu-deniz"><div><span class="name">La Spezia</span><span class="desc">Taze fettuccine • San Marzano domates • Jumbo karides • Fesleğen yaprakları • Parmesan</span></div><div class="price">490₺</div></div>
+<p class="no-results" data-section="makarna" hidden>Seçtiğiniz alerjenlere göre bu kategoride uygun ürün bulunamadı.</p>
 
 <div class="category" id="tatli"><b>Tatlı</b></div>
-<div class="item"><div><span class="name">Tiramisu</span></div><div class="price">340₺</div></div>
-<div class="item"><div><span class="name">Pizzikotti</span></div><div class="price">180₺</div></div>
+<div class="item allergen-item" data-allergens="gluten,sut,yumurta"><div><span class="name">Tiramisu</span><span class="allergen-note">⚠️ Menüde içerik dökümü yok — klasik tarife göre varsayıldı, teyit öneriliyor</span></div><div class="price">340₺</div></div>
+<div class="item allergen-item" data-allergens="gluten"><div><span class="name">Pizzikotti</span><span class="allergen-note">⚠️ Menüde içerik dökümü yok — alerjen bilgisi için personelimize danışınız</span></div><div class="price">180₺</div></div>
+<p class="no-results" data-section="tatli" hidden>Seçtiğiniz alerjenlere göre bu kategoride uygun ürün bulunamadı.</p>
 
 <div class="category" id="icecekler"><b>İçecekler</b></div>
 <div class="drinks-grid">
@@ -208,12 +264,125 @@ footer .tagline{opacity:.85;margin:0 0 20px}
 <p class="tagline">İtalyan Mutfağı • %100 Ekşi Mayalı</p>
 <div class="footer-info">
 <a href="tel:+905330282482">📞 0533 028 24 82</a>
-<a href="https://maps.google.com" target="_blank" rel="noopener">📍 İzmir</a>
+<a href="https://maps.google.com" target="_blank" rel="noopener">📍 İstanbul</a>
 <a href="https://tuttoitaliano.com.tr" target="_blank" rel="noopener">🌐 tuttoitaliano.com.tr</a>
 <a href="https://instagram.com/italianotutto" target="_blank" rel="noopener">📷 @italianotutto</a>
 </div>
 <p class="copyright">© 2026 Tutto Italiano • Tüm Hakları Saklıdır.</p>
 </footer>
+
+<button class="allergen-fab" id="allergenOpenBtn" aria-haspopup="dialog">
+  🛡️ Alerjen Filtresi <span class="allergen-badge" id="allergenBadge">0</span>
+</button>
+
+<div class="allergen-overlay" id="allergenOverlay">
+  <div class="allergen-modal" role="dialog" aria-modal="true" aria-labelledby="allergenTitle">
+    <div class="allergen-modal-head">
+      <h3 id="allergenTitle">Alerjen Seçimi</h3>
+      <button class="allergen-close" id="allergenCloseBtn" aria-label="Kapat">✕</button>
+    </div>
+    <p class="desc">Lütfen alerjiniz olan içerikleri seçiniz. Bu içeriklere sahip ürünler Pizza, Makarna ve Tatlı kategorilerinde gizlenecektir.</p>
+    <div class="allergen-grid" id="allergenGrid">
+      <button type="button" class="allergen-pill" data-allergen="gluten">🌾 Gluten</button>
+      <button type="button" class="allergen-pill" data-allergen="sut">🥛 Süt</button>
+      <button type="button" class="allergen-pill" data-allergen="yumurta">🥚 Yumurta</button>
+      <button type="button" class="allergen-pill" data-allergen="balik">🐟 Balık</button>
+      <button type="button" class="allergen-pill" data-allergen="kabuklu-deniz">🦐 Kabuklu Deniz</button>
+      <button type="button" class="allergen-pill" data-allergen="yer-fistigi">🥜 Yer Fıstığı</button>
+      <button type="button" class="allergen-pill" data-allergen="kuruyemis">🌰 Kuruyemiş</button>
+      <button type="button" class="allergen-pill" data-allergen="kereviz">🥬 Kereviz</button>
+      <button type="button" class="allergen-pill" data-allergen="hardal">🟡 Hardal</button>
+      <button type="button" class="allergen-pill" data-allergen="susam">◦ Susam</button>
+      <button type="button" class="allergen-pill" data-allergen="soya">🌱 Soya</button>
+      <button type="button" class="allergen-pill" data-allergen="sulfit">⚗️ Sülfitler</button>
+      <button type="button" class="allergen-pill" data-allergen="aci-bakla">🫘 Acı Bakla</button>
+      <button type="button" class="allergen-pill" data-allergen="yumusakcalar">🐚 Yumuşakçalar</button>
+    </div>
+    <button class="allergen-apply" id="allergenApplyBtn">Filtreyi Uygula</button>
+    <button class="allergen-clear" id="allergenClearBtn">Filtreyi Temizle</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var selected = new Set();
+  var overlay = document.getElementById('allergenOverlay');
+  var openBtn = document.getElementById('allergenOpenBtn');
+  var closeBtn = document.getElementById('allergenCloseBtn');
+  var applyBtn = document.getElementById('allergenApplyBtn');
+  var clearBtn = document.getElementById('allergenClearBtn');
+  var badge = document.getElementById('allergenBadge');
+  var pills = document.querySelectorAll('.allergen-pill');
+
+  function openModal(){ overlay.classList.add('open'); }
+  function closeModal(){ overlay.classList.remove('open'); }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      var val = pill.getAttribute('data-allergen');
+      if(selected.has(val)){ selected.delete(val); pill.classList.remove('active'); }
+      else { selected.add(val); pill.classList.add('active'); }
+    });
+  });
+
+  function applyFilter(){
+    var items = document.querySelectorAll('.allergen-item');
+    var sectionCounts = {};
+    items.forEach(function(item){
+      var allergens = (item.getAttribute('data-allergens') || '').split(',').filter(Boolean);
+      var shouldHide = allergens.some(function(a){ return selected.has(a); });
+      item.classList.toggle('allergen-hidden', shouldHide);
+      var section = item.closest('section') ? findSection(item) : null;
+    });
+    updateNoResults();
+    badge.textContent = selected.size;
+    badge.classList.toggle('show', selected.size > 0);
+    closeModal();
+  }
+
+  function findSection(item){
+    var el = item.previousElementSibling;
+    while(el){
+      if(el.classList && el.classList.contains('category')) return el.id;
+      el = el.previousElementSibling;
+    }
+    return null;
+  }
+
+  function updateNoResults(){
+    ['pizza','makarna','tatli'].forEach(function(id){
+      var cat = document.getElementById(id);
+      if(!cat) return;
+      var el = cat.nextElementSibling;
+      var anyVisible = false;
+      while(el && !el.classList.contains('category')){
+        if(el.classList.contains('allergen-item') && !el.classList.contains('allergen-hidden')) anyVisible = true;
+        if(el.classList.contains('no-results')) el.hidden = anyVisible;
+        el = el.nextElementSibling;
+      }
+    });
+  }
+
+  function clearFilter(){
+    selected.clear();
+    pills.forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.allergen-item').forEach(function(item){
+      item.classList.remove('allergen-hidden');
+    });
+    document.querySelectorAll('.no-results').forEach(function(p){ p.hidden = true; });
+    badge.textContent = '0';
+    badge.classList.remove('show');
+    closeModal();
+  }
+
+  applyBtn.addEventListener('click', applyFilter);
+  clearBtn.addEventListener('click', clearFilter);
+})();
+</script>
 
 </body>
 </html>
