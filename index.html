@@ -66,9 +66,11 @@ h2{font:700 42px 'Cormorant Garamond',serif;color:var(--navy);text-align:center;
 .category{
   scroll-margin-top:70px;
   display:flex;align-items:baseline;gap:14px;
-  margin-top:52px;padding-bottom:10px;border-bottom:2px solid var(--line);
+  margin-top:52px;padding:14px 18px;
+  background:var(--paper);border:1px solid var(--gold);border-left:7px solid var(--gold);
+  border-radius:8px;box-shadow:0 5px 14px rgba(27,42,68,.08);
 }
-.category b{font:700 32px 'Cormorant Garamond',serif;color:var(--navy)}
+.category b{font:700 32px 'Cormorant Garamond',serif;color:var(--gold)}
 .category small{color:#9a927c;font-size:13px;font-style:italic}
 
 .item{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #eae5d8}
@@ -103,6 +105,7 @@ footer .tagline{opacity:.85;margin:0 0 20px}
   nav{gap:14px;padding:12px}
   nav a{font-size:11px}
   .drinks-grid{grid-template-columns:1fr;gap:24px}
+  .category{align-items:flex-start;flex-direction:column;gap:2px;padding:12px 14px}
   .category b{font-size:26px}
   .allergen-grid{grid-template-columns:1fr}
 }
